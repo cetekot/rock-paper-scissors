@@ -1,6 +1,7 @@
 package com.cetekot.rockpaperscissors.service;
 
 import com.cetekot.rockpaperscissors.model.Attack;
+import com.cetekot.rockpaperscissors.model.GameRound;
 import com.cetekot.rockpaperscissors.model.GameStats;
 import com.cetekot.rockpaperscissors.model.Outcome;
 import com.cetekot.rockpaperscissors.persistence.entity.Game;
@@ -24,12 +25,12 @@ public class GameService {
 
     private final GameRepository repository;
 
-    public String process( String userId, Attack attack ) {
+    public GameRound process( String userId, Attack attack ) {
 
         Attack computerAttack = Attack.random();
         Outcome result = attack.vsComputer( computerAttack );
         repository.save( new Game( null, userId, isTrue( result, Outcome.VICTORY ), isTrue( result, Outcome.DEFEAT ), isTrue( result, Outcome.DRAW ) ) );
-        return result.getMessage();
+        return new GameRound( userId, attack, computerAttack, result );
     }
 
     @Transactional

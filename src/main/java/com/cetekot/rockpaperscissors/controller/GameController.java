@@ -1,6 +1,7 @@
 package com.cetekot.rockpaperscissors.controller;
 
 import com.cetekot.rockpaperscissors.model.Attack;
+import com.cetekot.rockpaperscissors.model.GameRound;
 import com.cetekot.rockpaperscissors.model.GameStats;
 import com.cetekot.rockpaperscissors.service.GameService;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,7 @@ public class GameController {
     private final GameService gameService;
 
     @PostMapping( "/{id}" )
-    public ResponseEntity<String> play( @PathVariable( "id" ) String id, @RequestBody Attack attack ) {
+    public ResponseEntity<GameRound> play( @PathVariable( "id" ) String id, @RequestBody Attack attack ) {
 
         return ResponseEntity.ok( gameService.process( id, attack ) );
     }
