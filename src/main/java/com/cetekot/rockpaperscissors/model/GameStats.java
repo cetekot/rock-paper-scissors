@@ -1,6 +1,5 @@
 package com.cetekot.rockpaperscissors.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -11,11 +10,10 @@ import lombok.Data;
  */
 
 @Data
-@AllArgsConstructor
 public class GameStats {
 
-    private String userId;
-    private Integer wins;
-    private Integer losses;
-    private Integer draws;
+    private final String userId;
+    private final Integer wins;
+    private final Integer losses;
+    private final Integer draws;
 }
