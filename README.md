@@ -19,14 +19,19 @@ The following is required to be configured before running the project:
     * `"PAPER"`
     * `"SCISSORS"`
 
-* Outcome variations:
-    * `You've won!`
-    * `You've lost!`
-    * `It's a draw.`
+* Sample outcome:
+    ```json
+  {
+      "userId": "usd123",
+      "attack": "PAPER",
+      "computer": "ROCK",
+      "outcome": "VICTORY"
+  }
+  ```
 
 ### Finish game and get statistics:
 
-* Url: localhost:5000/api/v1/rockpaperscissors/usd123
+* Url: http://localhost:5000/api/v1/rockpaperscissors/usd123
 * Request type: GET
 * Content-Type: application/json
 * Sample outcome:
